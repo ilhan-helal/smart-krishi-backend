@@ -4,7 +4,7 @@ import cors from "cors";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
-
+import cropRoutes from "./routes/cropRoutes.js";
 
 dotenv.config();
 
@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
 });
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
+app.use("/api/crop", cropRoutes);
 
 // server start
 const PORT = process.env.PORT || 5000;
