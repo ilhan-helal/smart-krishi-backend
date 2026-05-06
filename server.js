@@ -5,6 +5,10 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cropRoutes from "./routes/cropRoutes.js";
+import weatherRoutes from "./routes/weatherRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
+
+
 
 dotenv.config();
 
@@ -23,6 +27,8 @@ app.get("/", (req, res) => {
 app.use("/api/auth", authRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/crop", cropRoutes);
+app.use("/api/weather", weatherRoutes);
+app.use("/api/dashboard", dashboardRoutes);
 
 // server start
 const PORT = process.env.PORT || 5000;

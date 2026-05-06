@@ -30,6 +30,12 @@ const userSchema = new mongoose.Schema(
       type: Number,
     },
   },
+
+  {
+  "soilType":"loamy"
+}
+,
+
   {
     timestamps: true,
   }
