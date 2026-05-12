@@ -7,6 +7,12 @@ import userRoutes from "./routes/userRoutes.js";
 import cropRoutes from "./routes/cropRoutes.js";
 import weatherRoutes from "./routes/weatherRoutes.js";
 import dashboardRoutes from "./routes/dashboardRoutes.js";
+import mandiRoutes from "./routes/mandiRoutes.js";
+import path from "path";
+import { fileURLToPath } from "url";
+import uploadRoutes from "./routes/uploadRoutes.js";
+import aiRoutes from "./routes/aiRoutes.js";
+import newsRoutes from "./routes/newsRoutes.js";
 
 
 
@@ -18,7 +24,16 @@ connectDB();
 
 // middleware
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 
 // routes
 app.get("/", (req, res) => {
@@ -29,6 +44,11 @@ app.use("/api/user", userRoutes);
 app.use("/api/crop", cropRoutes);
 app.use("/api/weather", weatherRoutes);
 app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/mandi", mandiRoutes);
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/api/upload", uploadRoutes);
+app.use("/api/ai", aiRoutes);
+app.use("/api/news", newsRoutes);
 
 // server start
 const PORT = process.env.PORT || 5000;

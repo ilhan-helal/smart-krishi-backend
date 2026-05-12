@@ -5,8 +5,8 @@ const cropSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  soilTypes: [String],   // ["loamy", "clay"]
-  season: String,        // Rabi / Kharif
+  states: [String],  
+  season: String,   
   waterRequirement: String,
 });
 
